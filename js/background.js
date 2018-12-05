@@ -7,8 +7,16 @@
                 playend: false
             }, options);
             return this.each(() => {
-                let globalTime = settings.time;
-                let globalPlayend = settings.playend;
+                if(this.data("bgtime") == undefined){
+                    var globalTime = settings.time;
+                }else{
+                    var globalTime = this.data("bgtime");
+                };
+                if(this.data("bgplayend") == undefined){
+                    var globalPlayend = settings.playend;
+                }else{
+                    var globalPlayend = this.data("bgplayend");
+                };
                 let elements = settings.elements;
                 for(let i = 0; i < elements.length; i ++){
                     if(elements[i].time == undefined){
@@ -29,7 +37,7 @@
                     if(elements[i].type == "img"){
                         $(child).append($('<img src="' + elements[i].url + '" />'));
                     }else if(elements[i].type == "video"){
-                        $(child).append($("<video>"));
+                        $(child).append($('<video poster="' + elements[i].poster + '">'));
                         let video = child.children();
                         $(video).append($('<source src="' + elements[i].url + '" />'));
                     };
@@ -37,6 +45,12 @@
                 };
                 let children = this.children();
                 for(let i = 0; i < children.length; i ++){
+                    if($(children[i]).attr("data-bgtime") == undefined){
+                        $(children[i]).attr("data-bgtime", globalTime);
+                    };
+                    if($(children[i]).attr("data-bgplayend") == undefined){
+                        $(children[i]).attr("data-bgplayend", globalPlayend);
+                    };
                     if(i == 0){
                         $(children[i]).css({
                             "z-index": -1 * i -1,
@@ -69,6 +83,7 @@
                 let globalTime = this.data("bgtime");
                 let globalPlayend = this.data("bgplayend");
                 let elements = this.children();
+                console.log(elements);
                 let numberOfElement = elements.length;
                 let pointer = 0;
                 let previousPointer = numberOfElement - 1;
@@ -83,6 +98,7 @@
                     }else{
                         var localPlayend = $(element).data("bgplayend");
                     };
+                    $(elements[previousPointer]).find("video").off("ended");
                     $(elements[previousPointer]).css("opacity", 0);
                     previousPointer = pointer;
                     pointer ++;
