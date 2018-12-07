@@ -4,7 +4,8 @@
             var settings = $.extend({
                 elements: [],
                 time: 5,
-                playend: false
+                playend: false,
+                needLoading: false
             }, options);
             return this.each(() => {
                 if(this.data("bgtime") == undefined){
@@ -51,6 +52,9 @@
                     if($(children[i]).attr("data-bgplayend") == undefined){
                         $(children[i]).attr("data-bgplayend", globalPlayend);
                     };
+                    if(settings.needLoading){
+                        $(children[i]).addClass("loading");
+                    }
                     if(i == 0){
                         $(children[i]).css({
                             "z-index": -1 * i -1,
@@ -83,7 +87,6 @@
                 let globalTime = this.data("bgtime");
                 let globalPlayend = this.data("bgplayend");
                 let elements = this.children();
-                console.log(elements);
                 let numberOfElement = elements.length;
                 let pointer = 0;
                 let previousPointer = numberOfElement - 1;
