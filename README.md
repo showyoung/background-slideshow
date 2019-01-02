@@ -21,7 +21,7 @@ expmple:
 
 3.add jquery and this plugin to script.
 <script src="js/jquery/jquery-3.3.1.min.js"></script>
-<script src="js/easybackground.js"></script>
+<script src="js/background.js"></script>
 <script>
   $(function(){
     $("#whatever").background();
