@@ -79,11 +79,13 @@ $("#whatever").background({
             }, {
                 url : "img/videos/background_01.mp4",
                 type : "video",
+                poster : "img/pictures/background_01.jpg",
                 time : 6,
                 playend : true
             }, {
                 url : "img/videos/background_02.mp4",
                 type : "video",
+                poster : "img/pictures/background_02.jpg",
                 time : 4,
                 playend : false
             }]
