@@ -38,7 +38,8 @@ data-bgplayend="true" means when video play to the end, then play next slideshow
 OR we can add parameters on script.
 $("#whatever").background({
   time: 5,
-  playend: true
+  playend: true,
+  needLoading: false
 });
 
 2.we can set parameters for each element,if some elements has no parameter, there will use the parameters in parent.
