@@ -52,12 +52,12 @@ $("#whatever").background({
   </div>
   <div class="video" data-bgtime="6" data-bgplayend="true">
     <video> 
-      <source src="img/videos/background_01.mp4" />
+      <source src="img/videos/background_01.mp4" poster="img/pictures/background_01.jpg" />
     </video>
   </div>
   <div class="video" data-bgtime="8" data-bgplayend="false">
     <video> 
-      <source src="img/videos/background_02.mp4" />
+      <source src="img/videos/background_02.mp4" poster="img/pictures/background_02.jpg" />
     </video>
   </div>
 </div>
@@ -66,28 +66,28 @@ $("#whatever").background({
 
 4.we can dynamically set the background contents, use script or ajax.
  $("#whatever").background({
-            elements: [{
-                url : "img/pictures/background_01.jpg",
-                type : "img",
-                time : 10,
-                playend : false
-            }, {
-                url : "img/pictures/background_02.jpg",
-                type : "img",
-                time : 8,
-                playend : false
-            }, {
-                url : "img/videos/background_01.mp4",
-                type : "video",
-                poster : "img/pictures/background_01.jpg",
-                time : 6,
-                playend : true
-            }, {
-                url : "img/videos/background_02.mp4",
-                type : "video",
-                poster : "img/pictures/background_02.jpg",
-                time : 4,
-                playend : false
-            }]
-        });
-        $("#background").background("run");
+  elements: [{
+    url : "img/pictures/background_01.jpg",
+    type : "img",
+    time : 10,
+    playend : false
+  }, {
+    url : "img/pictures/background_02.jpg",
+    type : "img",
+    time : 8,
+    playend : false
+  }, {
+    url : "img/videos/background_01.mp4",
+    type : "video",
+    poster : "img/pictures/background_01.jpg",
+    time : 6,
+    playend : true
+  }, {
+    url : "img/videos/background_02.mp4",
+    type : "video",
+    poster : "img/pictures/background_02.jpg",
+    time : 4,
+    playend : false
+  }]
+});
+$("#background").background("run");
